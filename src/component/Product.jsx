@@ -13,5 +13,5 @@ function Product() {
     </>
   )
 }
-c
+
 export default Product
