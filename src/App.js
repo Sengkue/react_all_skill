@@ -1,10 +1,8 @@
-import React from "react";
+import React, { lazy } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./component/Home";
-// import About from "./component/About";
 import Blog from "./component/Blog";
-import Contact from "./component/Contact";
 import Navbar from "./component/NavBar";
 import NoMatch from "./component/NoMatch";
 import Product from "./component/Product";
@@ -17,7 +15,10 @@ import Profile from "./component/Profile";
 import { AuthProvider } from "./component/Auth";
 import Login from "./component/Login";
 import { RequireAuth } from "./component/RequireAuth";
-const LazyAbout = React.lazy(() => import("./component/About"));
+import Cookies from "./component/Cookies";
+
+const LazyAbout = lazy(() => import("./component/About"));
+const LazyContact = lazy(() => import("./component/Contact"));
 
 function App() {
   return (
@@ -28,13 +29,20 @@ function App() {
         <Route
           path="/about"
           element={
-            <React.Suspense fallback="loading...">
+            <React.Suspense fallback="Loading...">
               <LazyAbout />
             </React.Suspense>
           }
         />
+        <Route
+          path="/contact"
+          element={
+            <React.Suspense fallback="Loading...">
+              <LazyContact />
+            </React.Suspense>
+          }
+        />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<Product />}>
           <Route index element={<FeaturedProduct />} />
           <Route path="featured" element={<FeaturedProduct />} />
@@ -54,6 +62,7 @@ function App() {
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/cookies" element={<Cookies />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </AuthProvider>
