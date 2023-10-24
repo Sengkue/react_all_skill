@@ -40,6 +40,21 @@ function NavBar() {
       <NavLink style={NavLinkStyle} to="/cookies">
         Cookies
       </NavLink>
+      <NavLink style={NavLinkStyle} to="/sheet">
+        SheetBest
+      </NavLink>
+      <NavLink style={NavLinkStyle} to="/sheety">
+        Sheety
+      </NavLink>
+      <NavLink style={NavLinkStyle} to="/sheetapi">
+        googleSheets03
+      </NavLink>
+      <NavLink style={NavLinkStyle} to="/dataform">
+       FirebaseCRUD
+      </NavLink>
+      <NavLink style={NavLinkStyle} to="/upload">
+        uploadImage
+      </NavLink>
     </nav>
   );
 }

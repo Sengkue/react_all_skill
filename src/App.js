@@ -16,6 +16,12 @@ import { AuthProvider } from "./component/Auth";
 import Login from "./component/Login";
 import { RequireAuth } from "./component/RequireAuth";
 import Cookies from "./component/Cookies";
+import Sheet from "./component/Sheet";
+import Sheety from "./component/Sheety";
+import Sheetapi from "./component/Sheetapi";
+import DataForm from "./component/DataForm";
+import Upload from "./component/Upload";
+
 
 const LazyAbout = lazy(() => import("./component/About"));
 const LazyContact = lazy(() => import("./component/Contact"));
@@ -63,6 +69,11 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="/sheet" element={<Sheet />} />
+        <Route path="/sheety" element={<Sheety />} />
+        <Route path="/sheetapi" element={<Sheetapi />} />
+        <Route path="/dataform" element={<DataForm />} />
+        <Route path="/upload" element={<Upload />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </AuthProvider>
