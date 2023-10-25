@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Button } from "semantic-ui-react";
+import AddModal from "./FirebaseCRUD/AddModal";
 import EditModal from "./FirebaseCRUD/EditModal";
 import DeleteModal from "./FirebaseCRUD/DeleteModal";
-import AddModal from "./FirebaseCRUD/AddModal";
-import { toast } from "react-toastify";
-
 
 function DataForm() {
   const [data, setData] = useState([]);
@@ -15,22 +13,28 @@ function DataForm() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [deleteItemId, setDeleteItemId] = useState("");
+  const [newItem, setNewItem] = useState({
+    title: "",
+    description: "",
+    dateTime: "",
+    imageUrl: "",
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-  const fetchData = () => {
+    // Fetch data from your Firebase API
     axios
       .get("https://xeebkwmvaj-3e3ec-default-rtdb.firebaseio.com/notes.json")
       .then((response) => {
         const fetchedData = response.data;
+        console.log('showdata', fetchedData)
         const dataArr = [];
-  
+
         for (let key in fetchedData) {
+          console.log('show key', key)
           dataArr.push({ id: key, ...fetchedData[key] });
         }
-  
+
         setData(dataArr);
         setLoading(false);
       })
@@ -38,8 +42,8 @@ function DataForm() {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  };
-  
+  }, []);
+
   const handleOpenModal = () => {
     setShowModal(true);
   };
@@ -66,9 +70,36 @@ function DataForm() {
     setDeleteItemId("");
     setShowDeleteModal(false);
   };
+
+  const handleInputChange = (e, { name, value }) => {
+    setNewItem({ ...newItem, [name]: value });
+  };
+
   const handleEditInputChange = (e, { name, value }) => {
     setEditItem({ ...editItem, [name]: value });
   };
+
+  const handleAddItem = () => {
+    setIsLoading(true);
+
+    axios
+      .post(
+        "https://xeebkwmvaj-3e3ec-default-rtdb.firebaseio.com/notes.json",
+        newItem
+      )
+      .then((response) => {
+        const newItemWithId = { id: response.data.name, ...newItem };
+        setData([...data, newItemWithId]);
+        setNewItem({ title: "", description: "", dateTime: "" });
+        setShowModal(false);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error sending data to Firebase:", error);
+        setIsLoading(false);
+      });
+  };
+
   const handleEditItem = () => {
     setIsLoading(true);
 
@@ -104,7 +135,6 @@ function DataForm() {
         setDeleteItemId("");
         setShowDeleteModal(false);
         setIsLoading(false);
-        toast.success(<strong>Item deleted successfully</strong>);
       })
       .catch((error) => {
         console.error("Error deleting data from Firebase:", error);
@@ -138,7 +168,7 @@ function DataForm() {
             <Table.Row key={item.id}>
               <Table.Cell>{index + 1}</Table.Cell>
               <Table.Cell>
-                <img style={{borderRadius: "10%"}} src={item.imageUrl} alt={item.title} width={80} height={80}/>
+                <img src={item.imageUrl} alt={item.title} width={80}/>
               </Table.Cell>
               <Table.Cell>{item.title}</Table.Cell>
               <Table.Cell>{item.description}</Table.Cell>
@@ -154,7 +184,14 @@ function DataForm() {
         </Table.Body>
       </Table>
 
-      <AddModal showModal={showModal} onClose={handleCloseModal} fetchData={fetchData} />
+      <AddModal
+        showModal={showModal}
+        onClose={handleCloseModal}
+        newItem={newItem}
+        handleInputChange={handleInputChange}
+        handleAddItem={handleAddItem}
+        isLoading={isLoading}
+      />
 
       <EditModal
         showModal={showEditModal}
