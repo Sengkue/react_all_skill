@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import { initializeApp } from 'firebase/app';
 import 'firebase/database';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLzrvcnjKqHakImJr84l184f3tYUKbEHI",

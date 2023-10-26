@@ -4,13 +4,13 @@
   box-sizing: border-box;
 }
 Nav {
-  background-color: #333;
+  /* background-color: #333; */
   padding: 1rem;
   text-align: center;
 }
 
 nav a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   margin: 0 1rem;
 }
