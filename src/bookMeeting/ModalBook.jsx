@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const modalStyle = {
   position: "absolute",
@@ -15,7 +15,7 @@ const modalStyle = {
   "@media (max-width: 600px)": {
     width: "95%", // Change width to 100% for screens with a maximum width of 600px (typically mobile screens)
   },
-  bgcolor: "lightblue",
+  bgcolor: "white",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
@@ -69,7 +69,17 @@ export default function BasicModal() {
                       marginTop: "-40px",
                     }}
                   >
-                    <HighlightOffIcon onClick={handleClose} style={{ cursor: "pointer" , color: "red", fontSize: "30px", margin: "0px", padding: "0px", borderRadius: "50%" }} />
+                    <HighlightOffIcon
+                      onClick={handleClose}
+                      style={{
+                        cursor: "pointer",
+                        color: "red",
+                        fontSize: "30px",
+                        margin: "0px",
+                        padding: "0px",
+                        borderRadius: "50%",
+                      }}
+                    />
                   </div>
                 </div>
               </Grid>
@@ -81,19 +91,19 @@ export default function BasicModal() {
                     </div>
                   </Grid>
                   <Grid item xs={8}>
-                   <select
-                     style={{
-                       width: "100%",
-                       padding: "7px",
-                       margin: "0px",
-                       borderRadius: "10px",
-                     }}
-                   >
-                     <option value="">Select Department Name</option>
-                     <option value="department1">Department 1</option>
-                     <option value="department2">Department 2</option>
-                     <option value="department3">Department 3</option>
-                   </select>
+                    <select
+                      style={{
+                        width: "100%",
+                        padding: "7px",
+                        margin: "0px",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      <option value="">Select Department Name</option>
+                      <option value="department1">Department 1</option>
+                      <option value="department2">Department 2</option>
+                      <option value="department3">Department 3</option>
+                    </select>
                   </Grid>
                   <Grid item xs={4}>
                     <div style={{ paddingTop: "5px" }}>
@@ -104,10 +114,15 @@ export default function BasicModal() {
                     <input
                       type="date"
                       style={{
-                        width: "50%",
+                        width: "45%",
                         padding: "5px",
                         margin: "0px",
                         borderRadius: "10px",
+                        border: "none",
+                        backgroundColor: "#E0E0E0",
+                        fontSize: "15px",
+                        cursor: "pointer",
+
                       }}
                     />
                   </Grid>
@@ -116,36 +131,52 @@ export default function BasicModal() {
                       Time <span style={{ color: "red" }}>*</span>
                     </div>
                   </Grid>
-                  <Grid item xs={8} style={{ display: "flex" , justifyContent: "space-between", alignItems: "center"}}>
-                    <input
-                      type="time"
-                      style={{
-                        width: "45%",
-                        padding: "5px",
-                        margin: "0px",
-                        borderRadius: "10px",
-                       
-                      }}
-                    />
-                 
-                    <div
-                      style={{
-                        width: "10%",
-                        textAlign: "center",
-                      }}
-                    >
-                      to
-                    </div>
-                  
-                    <input
-                      type="time"
-                      style={{
-                        width: "45%",
-                        padding: "5px",
-                        margin: "0px",
-                        borderRadius: "10px",
-                      }}
-                    />
+                  <Grid item xs={8}>
+                    <Grid container spacing={2}>
+                      <Grid
+                        item
+                        xs={12}
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <input
+                          type="time"
+                          style={{
+                            width: "45%",
+                            padding: "5px",
+                            margin: "0px",
+                            borderRadius: "10px",
+                          }}
+                        />
+
+                        <div
+                          style={{
+                            width: "10%",
+                            textAlign: "center",
+                          }}
+                        >
+                          to
+                        </div>
+
+                        <input
+                          type="time"
+                          style={{
+                            width: "45%",
+                            padding: "5px",
+                            margin: "0px",
+                            borderRadius: "10px",
+                          }}
+                        />
+                      </Grid>
+                      <Grid item xs={12} style={{ marginTop: "-10px" }}>
+                        <span style={{ color: "red" }}>
+                          amount of time 30ms
+                        </span>
+                      </Grid>
+                    </Grid>
                   </Grid>
                   <Grid item xs={4}>
                     <div style={{ paddingTop: "5px" }}>

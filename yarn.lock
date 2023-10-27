@@ -1836,6 +1836,11 @@
     "@babel/runtime" "^7.10.4"
     react-is "^16.6.3"
 
+"@fontsource/inter@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.npmjs.org/@fontsource/inter/-/inter-5.0.15.tgz"
+  integrity sha512-/IoWYEXl8lqJEx50JqNPT+bI4VNwxb/bg2oOfvG8PiEsDsmHRFvWBVHlohBNn1+QdBf+KbAjU/gb4vlGOSsVWw==
+
 "@grpc/grpc-js@~1.9.0":
   version "1.9.7"
   resolved "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.9.7.tgz"
@@ -2195,6 +2200,20 @@
   dependencies:
     "@babel/runtime" "^7.23.2"
 
+"@mui/joy@^5.0.0-beta.12":
+  version "5.0.0-beta.12"
+  resolved "https://registry.npmjs.org/@mui/joy/-/joy-5.0.0-beta.12.tgz"
+  integrity sha512-e5G9EGkxiCXWNFbSdo4V4TzqjwDqlgMbCHygzFlBwrgY1pn4jBxC5NZe4btq2CREpAi9nZlCeYgHd3ejKYBGBg==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+    "@mui/base" "5.0.0-beta.21"
+    "@mui/core-downloads-tracker" "^5.14.15"
+    "@mui/system" "^5.14.15"
+    "@mui/types" "^7.2.7"
+    "@mui/utils" "^5.14.15"
+    clsx "^2.0.0"
+    prop-types "^15.8.1"
+
 "@mui/lab@^5.0.0-alpha.150":
   version "5.0.0-alpha.150"
   resolved "https://registry.npmjs.org/@mui/lab/-/lab-5.0.0-alpha.150.tgz"
@@ -2209,7 +2228,7 @@
     clsx "^2.0.0"
     prop-types "^15.8.1"
 
-"@mui/material@^5.0.0", "@mui/material@^5.14.15", "@mui/material@^5.8.6", "@mui/material@>=5.10.11":
+"@mui/material@^5.0.0", "@mui/material@^5.14.15", "@mui/material@^5.4.1", "@mui/material@^5.8.6", "@mui/material@>=5.10.11":
   version "5.14.15"
   resolved "https://registry.npmjs.org/@mui/material/-/material-5.14.15.tgz"
   integrity sha512-Gq65rHjvLzkxmhG8bvag851Oqsmru7qkUb/cCI2xu7dQzmY345f9xJRJi72sRGjhaqHXWeRKw/yIwp/7oQoeXg==
@@ -2256,7 +2275,7 @@
     csstype "^3.1.2"
     prop-types "^15.8.1"
 
-"@mui/system@^5.14.15", "@mui/system@^5.8.0":
+"@mui/system@^5.14.15", "@mui/system@^5.4.1", "@mui/system@^5.8.0":
   version "5.14.15"
   resolved "https://registry.npmjs.org/@mui/system/-/system-5.14.15.tgz"
   integrity sha512-zr0Gdk1RgKiEk+tCMB900LaOpEC8NaGvxtkmMdL/CXgkqQZSVZOt2PQsxJWaw7kE4YVkIe4VukFVc43qcq9u3w==
@@ -2284,6 +2303,17 @@
     "@types/prop-types" "^15.7.8"
     prop-types "^15.8.1"
     react-is "^18.2.0"
+
+"@mui/x-data-grid@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.npmjs.org/@mui/x-data-grid/-/x-data-grid-6.16.3.tgz"
+  integrity sha512-msohYxn11JHzeQOywaH5wGSCb/fESootqHLKG6LuET7xOxjHS8GlN/GuW/4kKcbQRunSVh/ADwqpqq+SmWrSeQ==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+    "@mui/utils" "^5.14.14"
+    clsx "^2.0.0"
+    prop-types "^15.8.1"
+    reselect "^4.1.8"
 
 "@mui/x-date-pickers@^6.16.3":
   version "6.16.3"
@@ -9347,6 +9377,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz"
   integrity sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==
+
+reselect@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.npmjs.org/reselect/-/reselect-4.1.8.tgz"
+  integrity sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

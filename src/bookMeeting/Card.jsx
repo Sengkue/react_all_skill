@@ -10,7 +10,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const Item = styled(Paper)(({ theme, bgColor, isHovered }) => ({
   backgroundColor: bgColor,
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0),
   textAlign: "center",
   color: theme.palette.text.secondary,
   "&:hover": {
@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme, bgColor, isHovered }) => ({
 }));
 
 export default function BasicGrid() {
-  const [dateTimeTitleList, setDateTimeTitleList] = useState([
+  const dateTimeTitleList = [
     { dateTime: "9:30-10:30 AM", title: "IT Department" },
     { dateTime: "9:30-10:30 AM", title: null },
     { dateTime: "10:30-11:30 AM", title: "Marketing Meeting" },
@@ -41,7 +41,7 @@ export default function BasicGrid() {
     { dateTime: "6:30-7:30 PM", title: null },
     { dateTime: "6:30-7:30 PM", title: "Project Planning" },
     // Add more items as needed
-  ]);
+  ];
   
 
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -58,7 +58,7 @@ export default function BasicGrid() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} wrap="wrap" spacing={0.5}>
+      <Grid container spacing={0.5} wrap="wrap">
         {dateTimeTitleList.map((item, index) => (
           <Grid
             item

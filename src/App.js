@@ -6,8 +6,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -15,11 +16,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import { TextField, InputAdornment, Avatar,} from "@mui/material";
+import { TextField, InputAdornment, Avatar } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import Card from "./bookMeeting/Card";
-import DatePick from "./bookMeeting/DatePick";
-import ModalBook from "./bookMeeting/ModalBook";
+import Home from "./bookMeeting/Home";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+import StoryBook from "./bookMeeting/StoryBook";
+import User from "./bookMeeting/User";
 
 const drawerWidth = 240;
 
@@ -30,7 +32,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
+  const location = useLocation();
   const drawer = (
     <div>
       <Toolbar>
@@ -38,19 +40,54 @@ function ResponsiveDrawer(props) {
       </Toolbar>
       <Divider />
       <List>
-        {["Home", "Story", "User"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon />
-                ) : (
-                  <AccountBalanceWalletOutlinedIcon />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+        {[
+          { text: "Home", route: "/", icon: <HomeOutlinedIcon /> },
+          {
+            text: "Story",
+            route: "/storybook",
+            icon: <DescriptionOutlinedIcon />,
+          },
+          { text: "User", route: "/user", icon: <PersonOutlineOutlinedIcon /> },
+        ].map((item) => (
+          <div
+            style={{
+              backgroundColor:
+                location.pathname === item.route ? "#DAE9FC" : "transparent",
+                borderRadius: location.pathname === item.route ? "20px" : "none",
+            }}
+          >
+            <Link
+              to={item.route}
+              key={item.route}
+              style={{
+                backgroundColor:
+                  location.pathname === item.route ? "#DAE9FC" : "transparent",
+                borderRadius:
+                  location.pathname === item.route ? "20px" : "none",
+                  textDecoration: "none",
+
+              }}
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon
+                    style={{
+                      color: location.pathname === item.route ? "red" : "black",
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={item.text}
+                    style={{
+                      color: location.pathname === item.route ? "red" : "black",
+                      textDecoration: "none",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          </div>
         ))}
       </List>
     </div>
@@ -152,32 +189,11 @@ function ResponsiveDrawer(props) {
         // style={{ backgroundColor: "white" }}
       >
         <Toolbar />
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "nowrap",
-            alignContent: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div>
-            <DatePick />
-          </div>
-          <div>
-            <ModalBook/>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            marginTop: "20px",
-            marginBottom: "20px",
-          }}
-        >
-          <h3 style={{marginRight: "20px"}}>Report boot meeting room</h3>
-          <h3>10/26/2023</h3>
-        </div>
-        <Card />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/storybook" element={<StoryBook />} />
+          <Route path="/user" element={<User />} />
+        </Routes>
       </Box>
     </Box>
   );
