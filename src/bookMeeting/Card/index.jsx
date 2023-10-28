@@ -4,9 +4,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Toolbar, IconButton } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-
+import ModalDelete from "./ModalDelete";
+import ModalEdit from "./ModalEdit";
 const Item = styled(Paper)(({ theme, bgColor, isHovered }) => ({
   backgroundColor: bgColor,
   ...theme.typography.body2,
@@ -89,12 +88,12 @@ export default function BasicGrid() {
               <Toolbar>
                 {hoveredItem === index && item.title && (
                   <IconButton color="primary">
-                    <EditIcon />
+                    <ModalEdit/>
                   </IconButton>
                 )}
                 {hoveredItem === index && item.title && (
                   <IconButton color="error">
-                    <DeleteIcon />
+                    <ModalDelete />
                   </IconButton>
                 )}
               </Toolbar>

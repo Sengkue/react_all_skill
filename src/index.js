@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import 'semantic-ui-css/semantic.min.css';
-import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "semantic-ui-css/semantic.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { initializeApp } from 'firebase/app';
-import 'firebase/database';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { initializeApp } from "firebase/app";
+import "firebase/database";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./bookMeeting/Login";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLzrvcnjKqHakImJr84l184f3tYUKbEHI",
@@ -20,15 +20,17 @@ const firebaseConfig = {
   storageBucket: "xeebkwmvaj-3e3ec.appspot.com",
   messagingSenderId: "954566103482",
   appId: "1:954566103482:web:246f62f51c53d0ea47cd83",
-  measurementId: "G-11XXTES6XB"
+  measurementId: "G-11XXTES6XB",
 };
 
 initializeApp(firebaseConfig);
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<App />} />
+      </Routes>
       <ToastContainer />
       {/* <OAuthExample /> */}
     </BrowserRouter>

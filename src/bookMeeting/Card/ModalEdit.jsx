@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import EditIcon from "@mui/icons-material/Edit";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 const modalStyle = {
   position: "absolute",
@@ -31,14 +31,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        startIcon={<ControlPointIcon />}
-        style={{ borderRadius: "50px" }}
-        onClick={handleOpen}
-      >
-        Book
-      </Button>
+      <EditIcon onClick={handleOpen} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -63,7 +56,7 @@ export default function BasicModal() {
                   }}
                 >
                   <div></div>
-                  <h3>Form For Booking</h3>
+                  <h3>Edit Booking</h3>
                   <div
                     style={{
                       paddingRight: "-10px",
@@ -124,7 +117,6 @@ export default function BasicModal() {
                         backgroundColor: "#E0E0E0",
                         fontSize: "15px",
                         cursor: "pointer",
-
                       }}
                     />
                   </Grid>

@@ -19,15 +19,21 @@ import Toolbar from "@mui/material/Toolbar";
 import { TextField, InputAdornment, Avatar } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Home from "./bookMeeting/Home";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import StoryBook from "./bookMeeting/StoryBook";
 import User from "./bookMeeting/User";
+// import userImage from "./logo.svg"
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    // Use navigate to navigate to the desired route
+    navigate('/login');
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -136,7 +142,9 @@ function ResponsiveDrawer(props) {
             <Avatar
               style={{ marginLeft: "10px" }}
               alt="Remy Sharp"
-              src="/static/images/avatar/1.jpg"
+              src="https://media0.giphy.com/media/ZXkraFrlIW1D25M6ZJ/giphy.gif?cid=ecf05e47pm0kx6y0au52i7n7izc0faihyvmz80t1kotwmd8x&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+              onClick={() => handleLogin()}
+
             />
           </div>
         </Toolbar>

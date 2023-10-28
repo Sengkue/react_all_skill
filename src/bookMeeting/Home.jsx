@@ -27,7 +27,6 @@ const Home = () => {
               backgroundColor: "white",
               outline: "none",
               fontSize: "15px",
-              fontWeight: "bold",
               cursor: "pointer",
             }}
           />
